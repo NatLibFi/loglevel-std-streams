@@ -1,6 +1,6 @@
 # loglevel Standard Streams plugin
 
-Plugin for loglevel which sends all messages to stderr on Node.js
+Plugin for [loglevel](https://github.com/pimterry/loglevel) which sends all messages to stderr on Node.js
 
 ## Usage
 
@@ -51,6 +51,6 @@ $
 
 ## License and copyright
 
-**Copyright (c) 2015-2016 University Of Helsinki (The National Library Of Finland)**
+Copyright (c) 2015-2016 **University Of Helsinki (The National Library Of Finland)**
 
 This project's source code is licensed under the terms of **MIT License**.
