@@ -26,7 +26,7 @@ define(['loglevel', 'loglevel-std-streams'], function(log, loglevelStdStreams) {
 
 ```
 
-### Node.js require
+#### Node.js require
 
 ```javascript
 
@@ -39,7 +39,7 @@ log.warn('TEST');
 
 ```
 
-## Examples
+### Example
 
 ```sh
 $ node -e 'var log = require("loglevel-std-streams")(require("loglevel"));log.warn("This is a warning");console.log("TEST");' 2>log.txt
