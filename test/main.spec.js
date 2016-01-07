@@ -34,14 +34,14 @@
     'use strict';
 
     if (typeof define === 'function' && define.amd) {
-	define(['chai', 'loglevel', '../lib/main'], factory);
+	define(['chai', 'loglevel', 'es6-polyfills/lib/object', '../lib/main'], factory);
     } else if (typeof module === 'object' && module.exports) {
-        module.exports = factory(require('chai'), require('loglevel'), require('../lib/main'));
+        module.exports = factory(require('chai'), require('loglevel'), require('es6-polyfills/lib/object'), require('../lib/main'));
     }
 
 }(this, factory));
 
-function factory(chai, log, loglevelStdStreams)
+function factory(chai, log, Object, loglevelStdStreams)
 {
 
     'use strict';
@@ -49,5 +49,39 @@ function factory(chai, log, loglevelStdStreams)
     var expect = chai.expect;
     
     describe('main', function() {});
+
+    it('Should be a function', function() {
+	expect(loglevelStdStreams).to.be.a('function');
+    });
+
+    it('Should throw because argument is not an object', function() {
+	expect(loglevelStdStreams).to.throw(Error, /Argument is not a proper loglevel object/);
+    });
+
+    it('Should throw because argument is not a proper loglevel object', function() {
+	expect(function () {
+	    loglevelStdStreams({});
+	}).to.throw(Error, /Argument is not a proper loglevel object/);
+    });
+
+    it('Should return a the same loglevel object that was passed in as an argument', function() {
+
+	var logger = log.getLogger('foo');
+	var keys = Object.keys(logger);
+	
+	expect(loglevelStdStreams(logger)).to.have.all.keys(keys);
+
+    });
+
+
+    it('Should retain the original log level', function() {
+
+	var logger = log.getLogger('foo');
+
+	logger.setLevel('debug');
+
+	expect(loglevelStdStreams(logger).getLevel()).to.eql(1);
+
+    });
 
 }
