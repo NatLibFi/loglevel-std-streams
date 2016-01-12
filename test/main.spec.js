@@ -34,9 +34,9 @@
     'use strict';
 
     if (typeof define === 'function' && define.amd) {
-	define(['chai', 'loglevel', 'es6-polyfills/lib/object', '../lib/main'], factory);
+	define(['chai', 'loglevel', 'es6-polyfills/lib/polyfills/object', '../lib/main'], factory);
     } else if (typeof module === 'object' && module.exports) {
-        module.exports = factory(require('chai'), require('loglevel'), require('es6-polyfills/lib/object'), require('../lib/main'));
+        module.exports = factory(require('chai'), require('loglevel'), require('es6-polyfills/lib/polyfills/object'), require('../lib/main'));
     }
 
 }(this, factory));
