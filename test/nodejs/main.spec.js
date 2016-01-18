@@ -29,61 +29,44 @@
  *
  **/
 
-(function (root, factory) {
+
+(function () {
 
     'use strict';
 
-    if (typeof define === 'function' && define.amd) {
-	define(['chai', 'loglevel', 'es6-polyfills/lib/polyfills/object', '../lib/main'], factory);
-    } else if (typeof module === 'object' && module.exports) {
-        module.exports = factory(require('chai'), require('loglevel'), require('es6-polyfills/lib/polyfills/object'), require('../lib/main'));
-    }
-
-}(this, factory));
-
-function factory(chai, log, Object, loglevelStdStreams)
-{
-
-    'use strict';
-
+    var chai = require('chai');
+    var log = require('loglevel');
+    var Object = require('es6-polyfills/lib/polyfills/object');
+    var loglevelStdStreams = require('../../lib/main');
     var expect = chai.expect;
-    
-    describe('main', function() {
-
-	it('Should be a function', function() {
-	    expect(loglevelStdStreams).to.be.a('function');
-	});
-
-	it('Should throw because argument is not an object', function() {
-	    expect(loglevelStdStreams).to.throw(Error, /Argument is not a proper loglevel object/);
-	});
-
-	it('Should throw because argument is not a proper loglevel object', function() {
-	    expect(function () {
-		loglevelStdStreams({});
-	    }).to.throw(Error, /Argument is not a proper loglevel object/);
-	});
-
-	it('Should return a the same loglevel object that was passed in as an argument', function() {
-
-	    var logger = log.getLogger('foo');
-	    var keys = Object.keys(logger);
-	    
-	    expect(loglevelStdStreams(logger)).to.have.all.keys(keys);
-
-	});
-
-
-	it('Should retain the original log level', function() {
-
-	    var logger = log.getLogger('foo');
-
-	    logger.setLevel('debug');
-
-	    expect(loglevelStdStreams(logger).getLevel()).to.eql(1);
+	
+    module.exports = function() {
+	
+	describe('nodejs', function() {
+	
+	    it('Should log using console.error', function() {
+		
+		var logger = log.getLogger('foo'),
+		orig_console_error = console.error,
+		message = '';
+		
+		console.error = function(msg)
+		{
+		    message = msg;
+		};
+		
+		logger.setLevel('debug');	 	    
+		loglevelStdStreams(logger);
+		logger.debug('foobar');
+		
+		console.error = orig_console_error;
+		
+		expect(message).to.equal('foobar');
+		
+	    });
 
 	});
 
-    });
+    }();
 
-}
+})();
