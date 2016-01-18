@@ -1,4 +1,4 @@
-# loglevel Standard Streams plugin
+# loglevel Standard Streams plugin [![NPM Version](https://img.shields.io/npm/v/loglevel-std-streams.svg)](https://npmjs.org/package/loglevel-std-streams) [![Build Status](https://travis-ci.org/NatLibFi/loglevel-std-streams.svg)](https://travis-ci.org/NatLibFi/loglevel-std-streams) [![Test Coverage](https://codeclimate.com/github/NatLibFi/loglevel-std-streams/badges/coverage.svg)](https://codeclimate.com/github/NatLibFi/loglevel-std-streams/coverage)
 
 Plugin for [loglevel](https://github.com/pimterry/loglevel) which sends all messages to stderr on Node.js
 
