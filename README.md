@@ -12,6 +12,16 @@ Clone the sources and install the package (In the source directory) on command l
 npm install
 ```
 
+## Testing
+
+Run the following NPM script to lint, test and check coverage of the code:
+
+```javascript
+
+npm run check
+
+```
+
 #### AMD
 
 ```javascript
