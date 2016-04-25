@@ -73,7 +73,6 @@ function factory(chai, log, Object, loglevelStdStreams)
 
 	});
 
-
 	it('Should retain the original log level', function() {
 
 	    var logger = log.getLogger('foo');
@@ -81,6 +80,23 @@ function factory(chai, log, Object, loglevelStdStreams)
 	    logger.setLevel('debug');
 
 	    expect(loglevelStdStreams(logger).getLevel()).to.eql(1);
+
+	});
+
+	it('Should support variadic arguments', function() {
+
+	    var messages = [],
+	    logger = loglevelStdStreams(log.getLogger('foobar'), function() {
+		return function() {
+		    for (var i = 0; i < arguments.length; i++) {
+			messages.push(arguments[i]);
+		    }
+		};
+	    });
+
+	    logger.error('foo', 'bar');
+
+	    expect(messages).to.eql(['foo', 'bar']);
 
 	});
 
