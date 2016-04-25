@@ -5,4 +5,5 @@ after_script:
   - codeclimate-test-reporter < coverage/lcov.info
 addons:
     code_climate:
-        repo_token: 05bf2edf0599bbaca3e24f64bdbd348754c526e77f02910e72df035dc7ec62a8
+        repo_token:
+          secure: "lcNxKw51J/WQgSg4n2SeJCvLLaYq6q7jBnNaNjCRWDKIajChUBZ9Re9r1sZ59WPo9K9rUhzGBUfaoc/QHrGyE4gVXt5sZsmyEOWN6PnZgGnP3pZ7ku2GGzr54qgnjsBSSM/5SHYkpon9uwER0BSMQT/i3oLJ9pX62m8L/sK6HxzJheVJb+ghRY1Y1d2up0ds1T6YjbFvioLLO6BBtZ9PSbpszepUTD0TwFzrI1iwYaM4wAsqezf+9v/1DWIjXTbGU6vAWeCJHFzeCU1Ugc5ZW4yi6/4k1pwSnrHt4AIQQOISMZn6Rl3ocLzo83M0ScxuRT1LDol/Sad9GdJ+bAJjmggjm6iE3cCBD7VcdScNfrz7ViSCW/0G04BGPr0peRayebWS/BEDHtw+Gj3OW1+M4jI0LNstvF7nSVenLCmxBOOeaed5UE9PQLsKrcLfS4Fjs6ImBqYd0fnQEANDWIT0UC7Burwop7gI0dAhrLlbSRIxodNeylEQhQFOJ3kwyPhym7Eav57YXc0jcd7YhhZU+yEUtOUyAMd1HYshnsC6EVYoczf0JWBtGz35wHXlub5n50jr8ICDWJ44i4PiF4xa1Nr0WpgRg7Ei01ypvBJG5Pvj0G5zcxPQg0WhFpj5zaTwAImXqwWiv09+tTBpXDCafBlvGXXh/eOyCvTS7b72vXA="
