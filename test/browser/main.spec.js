@@ -31,33 +31,33 @@
 
 define(['chai', 'loglevel', 'es6-polyfills/lib/polyfills/object', '../../lib/main'], function(chai, log, Object, loglevelStdStreams) {
 
-    'use strict';
+  'use strict';
 
-    var expect = chai.expect;
+  var expect = chai.expect;
+  
+  describe('browser', function() {
     
-    describe('browser', function() {
-	
-	it('Should log using console.log', function() {
-	    
-	    var logger = log.getLogger('foo'),
-	    orig_console_info = console.info,
-	    message = '';
-	    
-	    console.info = function(msg)
-	    {
-		message = msg;
-	    };
-	    
-	    logger.setLevel('info');	 	    
-	    loglevelStdStreams(logger);
-	    logger.info('foobar');
-	    
-	    console.info = orig_console_info;
+    it('Should log using console.log', function() {
+      
+      var logger = log.getLogger('foo'),
+      orig_console_info = console.info,
+      message = '';
+      
+      console.info = function(msg)
+      {
+        message = msg;
+      };
+      
+      logger.setLevel('info');        
+      loglevelStdStreams(logger);
+      logger.info('foobar');
+      
+      console.info = orig_console_info;
 
-	    expect(message).to.equal('foobar');
-	    
-	});
-	
+      expect(message).to.equal('foobar');
+      
     });
+    
+  });
 
 });

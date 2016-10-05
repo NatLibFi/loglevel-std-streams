@@ -32,41 +32,41 @@
 
 (function () {
 
-    'use strict';
+  'use strict';
 
-    var chai = require('chai');
-    var log = require('loglevel');
-    var Object = require('es6-polyfills/lib/polyfills/object');
-    var loglevelStdStreams = require('../../lib/main');
-    var expect = chai.expect;
-	
-    module.exports = function() {
-	
-	describe('nodejs', function() {
-	
-	    it('Should log using console.error', function() {
-		
-		var logger = log.getLogger('foo'),
-		orig_console_error = console.error,
-		message = '';
-		
-		console.error = function(msg)
-		{
-		    message = msg;
-		};
-		
-		logger.setLevel('debug');	 	    
-		loglevelStdStreams(logger);
-		logger.debug('foobar');
-		
-		console.error = orig_console_error;
-		
-		expect(message).to.equal('foobar');
-		
-	    });
+  var chai = require('chai');
+  var log = require('loglevel');
+  var Object = require('es6-polyfills/lib/polyfills/object');
+  var loglevelStdStreams = require('../../lib/main');
+  var expect = chai.expect;
+  
+  module.exports = function() {
+    
+    describe('nodejs', function() {
+      
+      it('Should log using console.error', function() {
+        
+        var logger = log.getLogger('foo'),
+        orig_console_error = console.error,
+        message = '';
+        
+        console.error = function(msg)
+        {
+          message = msg;
+        };
+        
+        logger.setLevel('debug');       
+        loglevelStdStreams(logger);
+        logger.debug('foobar');
+        
+        console.error = orig_console_error;
+        
+        expect(message).to.equal('foobar');
+        
+      });
 
-	});
+    });
 
-    }();
+  }();
 
 })();

@@ -1,51 +1,51 @@
 {
-    "name": "loglevel-std-streams",
-    "description": "Plugin for loglevel which sends all messages to stderr on Node.js",
-    "author": {
-	"name": "The National Library of Finland"
-    },
-    "keywords": [
-	"log",
-	"logger",
-	"logging",
-	"browser",
-	"loglevel-plugin"
-    ],
-    "homepage": "https://github.com/NatLibFi/loglevel-std-streams",
-    "bugs": {
-	"url": "https://github.com/NatLibFi/loglevel-std-streams/issues"
-    },
-    "repository": {
-	"type": "git",
-	"url": "git@github.com:NatLibFi/loglevel-std-streams.git"
-    },
-    "license": "MIT",
-    "version": "1.0.0",
-    "main": "./lib/main",
-    "scripts": {
-	"lint": "jshint .",
-	"test-nodejs": "mocha test/*.spec.js test/nodejs/*.spec.js",
-	"test-browser": "karma start",
-	"test": "npm run test-nodejs && npm run test-browser",
-	"coverage": "istanbul cover _mocha",
-	"check": "npm run lint && npm run test && npm run coverage",
-	"travisci": "npm run check",
-	"publish-to-npm": "npm run check && npm publish"
-    },
-    "dependencies": {
-	"loglevel": "^1.4.0",
-	"es6-polyfills": "https://github.com/NatLibFi/es6-polyfills"
-    },
-    "devDependencies": {
-	"chai": "^3.2.0",
-	"jshint": "^2.8.0",
-	"mocha": "^2.3.2",
-	"istanbul": "^0.3.20",
-	"karma": "^0.13.19",
-	"karma-mocha": "^0.2.1",
-	"karma-requirejs": "^0.2.3",
-	"karma-phantomjs-launcher": "^0.2.3",
-	"phantomjs": "^1.9.19",
-	"codeclimate-test-reporter": "^0.1.1"
-    }
+  "name": "loglevel-std-streams",
+  "description": "Plugin for loglevel which sends all messages to stderr on Node.js",
+  "author": {
+    "name": "The National Library of Finland"
+  },
+  "keywords": [
+    "log",
+    "logger",
+    "logging",
+    "browser",
+    "loglevel-plugin"
+  ],
+  "homepage": "https://github.com/NatLibFi/loglevel-std-streams",
+  "bugs": {
+    "url": "https://github.com/NatLibFi/loglevel-std-streams/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:NatLibFi/loglevel-std-streams.git"
+  },
+  "license": "MIT",
+  "version": "1.0.1",
+  "main": "./lib/main",
+  "scripts": {
+    "lint": "jshint .",
+    "test-nodejs": "mocha test/*.spec.js test/nodejs/*.spec.js",
+    "test-browser": "karma start",
+    "test": "npm run test-nodejs && npm run test-browser",
+    "coverage": "istanbul cover _mocha",
+    "check": "npm run lint && npm run test && npm run coverage",
+    "travisci": "npm run check",
+    "publish-to-npm": "npm run check && npm publish"
+  },
+  "dependencies": {
+    "loglevel": "^1.4.0",
+    "es6-polyfills": "https://github.com/NatLibFi/es6-polyfills"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.2",
+    "istanbul": "^0.3.20",
+    "karma": "^0.13.19",
+    "karma-mocha": "^0.2.1",
+    "karma-requirejs": "^0.2.3",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "phantomjs": "^1.9.19",
+    "codeclimate-test-reporter": "^0.1.1"
+  }
 }
