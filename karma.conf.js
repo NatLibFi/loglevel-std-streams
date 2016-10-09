@@ -3,10 +3,33 @@ module.exports = function(config) {
     singleRun: true,
     frameworks: ['mocha', 'requirejs'],
     browsers: ['PhantomJS'],
+    reporters: ['progress', 'coverage'],
+    preprocessors: {
+      'lib/*.js': 'coverage',
+      'lib/browser/*.js': 'coverage',
+      'test/browser/main.js': 'requirejs'
+    },
+    coverageReporter: {
+      subdir: 'browser',
+      reporters: [
+        {
+          type: 'json'
+        },
+        {
+          type: 'html'
+        }
+      ]
+    },
+    requirejsPreprocessor: {
+      config: {
+        baseUrl: '/base'
+      },
+      testRegexp: '^/base/test/(?!nodejs/).+\.spec\.js$'
+    },
     files: [
       'test/browser/main.js',
       {
-        pattern: 'test/**/*.spec.js',
+        pattern: 'test/**/*.js',
         included: false
       },
       {

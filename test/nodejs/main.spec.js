@@ -34,11 +34,11 @@
 
   'use strict';
 
-  var chai = require('chai');
-  var log = require('loglevel');
-  var Object = require('es6-polyfills/lib/polyfills/object');
-  var loglevelStdStreams = require('../../lib/main');
-  var expect = chai.expect;
+  var chai = require('chai'),
+  log = require('loglevel'),
+  Object = require('es6-polyfills/lib/polyfills/object'),
+  loglevelStdStreams = require('../../lib/main'),
+  expect = chai.expect;
   
   module.exports = function() {
     

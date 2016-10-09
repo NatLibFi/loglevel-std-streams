@@ -34,7 +34,7 @@
   'use strict';
 
   if (typeof define === 'function' && define.amd) {
-    define(['chai', 'loglevel', 'es6-polyfills/lib/polyfills/object', '../lib/main'], factory);
+    define(['chai/chai', 'loglevel', 'es6-polyfills/lib/polyfills/object', '../lib/main'], factory);
   } else if (typeof module === 'object' && module.exports) {
     module.exports = factory(require('chai'), require('loglevel'), require('es6-polyfills/lib/polyfills/object'), require('../lib/main'));
   }
@@ -86,7 +86,7 @@ function factory(chai, log, Object, loglevelStdStreams)
     it('Should support variadic arguments', function() {
 
       var messages = [],
-      logger = loglevelStdStreams(log.getLogger('foobar'), function() {
+      logger = loglevelStdStreams(log.getLogger('bar'), function() {
         return function() {
           for (var i = 0; i < arguments.length; i++) {
             messages.push(arguments[i]);
@@ -97,6 +97,32 @@ function factory(chai, log, Object, loglevelStdStreams)
       logger.error('foo', 'bar');
 
       expect(messages).to.eql(['foo', 'bar']);
+
+    });
+
+    it('Should pass context to the next plugin', function() {
+
+      var logger;
+
+      function mockPlugin(logger)
+      {
+
+        var fn_orig = logger.methodFactory;
+
+        logger.methodFactory = function()
+        {
+          return function()
+          {
+            expect(this).to.not.be.undefined /* jshint -W030 */;
+          };
+        };
+
+        return logger;
+
+      }
+      
+      logger = loglevelStdStreams(mockPlugin(log.getLogger('foobar')));
+      logger.error('foobar');      
 
     });
 
