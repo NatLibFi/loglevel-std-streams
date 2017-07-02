@@ -4,7 +4,7 @@
  *
  * Plugin for loglevel which sends all messages to stderr on Node.js
  *
- * Copyright (c) 2015-2016 University Of Helsinki (The National Library Of Finland)
+ * Copyright (c) 2015-2017 University Of Helsinki (The National Library Of Finland)
  *  
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  *
  **/
 
-define(['chai/chai', 'loglevel', 'es6-polyfills/lib/polyfills/object', '../../lib/main'], function(chai, log, Object, loglevelStdStreams) {
+define(['chai/chai', 'loglevel', '@natlibfi/es6-polyfills/lib/polyfills/object', '../../lib/main'], function(chai, log, Object, loglevelStdStreams) {
 
   'use strict';
 
